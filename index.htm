@@ -1,79 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dice Roller</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-    background: #f7f7f7;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background:#fcf5f9;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+        #dice {
+            height: 150px;
+            width: 150px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .dice-btn {
+            padding: 12px 20px;
+            background: hsl(325, 94%, 58%);
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .dice-btn:hover {
+            background: #fc3793;
+        }
+         /* ✅ Responsive Design with Media Queries */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 250px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            #dice {
+                height: 120px;
+                width: 120px;
+            }
+            .dice-btn {
+                font-size: 16px;
+                padding: 10px 18px;
+            }
+        }
 
-  .container {
-    display: inline-block;
-    align-items: center;
-    padding: 30px;
-    border: 3px solid #333;
-    height:200px;
-    width:150px;
-    margin-top: 90px;
-    border-radius: 15px;
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 200px;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            #dice {
+                height: 100px;
+                width: 100px;
+            }
+            .dice-btn {
+                font-size: 14px;
+                padding: 8px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dice Roller</h1>
+        <img src="images/dice (1).png" alt="Dice" id="dice">
+        <br>
+        <!-- Changed onclick function name to match JavaScript -->
+        <button onclick="Dice()" class="dice-btn">Roll Dice</button>
+    </div>
 
-  #dice {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
-    transition: transform 0.4s ease;
-  }
+    <script>
+        const image = document.getElementById('dice');
 
-  button {
-    padding: 12px 25px;
-    font-size: 18px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
+        function Dice() {
+            const min = 1;
+            const max = 7;
+            const Number = Math.floor(Math.random() * (max - min) + min);
 
-  button:hover {
-    background: #0056b3;
-  }
-</style>  
-<div class="container">
-<img src="images/dice.png" id="dice" width="180px" height="150px"/>
-<button onclick="roll()">Roll Dice</button>
-</div>
-<script>
-    const min = 1;
-      const max = 6;
-      function roll(){ 
-        const diceElement=document.getElementById("dice");
- const randomNumber=Math.floor(Math.random()*(max-min+1))+min;
- if(randomnumber==1){
-diceElement="images/dice 1.png";
- }
- else if(randomnumber==3){
-    diceElement="images/dice3.png";
- }
- else if(randomnumber==4){
-    diceElement="images/dice4.png";
- }
- else if(randomnumber==5){
-    diceElement="images/dice5.png";
- }
- else if(randomnumber==6){
-    diceElement="images/dice6.png";
- }
- }
-      
-   
-</script>
-    
-    
+            if (Number == 1) {
+                image.src = "images/dice (1).png";
+            }
+            if (Number == 2) {
+                image.src = "images/dice (2).png";
+            }
+            if (Number == 3) {
+                image.src = "images/dice (3).png";
+            }
+            if (Number == 4) {
+                image.src = "images/dice (4).png";
+            }
+            if (Number == 5) {
+                image.src = "images/dice (5).png";
+            }
+            if (Number == 6) {
+                image.src = "images/dice (6).png";
+            }
+        }
+    </script>
+</body>
+</html>
